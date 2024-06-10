@@ -38,7 +38,6 @@ contract ChainlinkVRF is VRFConsumerBaseV2 {
     function fulfillRandomWords(uint256 requestId, uint256[] memory randomWords) internal override {
         s_randomWords = new uint256[](randomWords.length);
     for (uint256 i = 0; i < randomWords.length; i++) {
-        // 将每个随机数限制在1到5的范围内
         s_randomWords[i] = (randomWords[i] % 5) + 1;
     }
 
